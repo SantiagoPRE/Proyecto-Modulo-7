@@ -1,7 +1,7 @@
 package com.devsenior.proyectom7.model.entity;
 
 import java.time.LocalDate;
-import java.util.List;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,7 +17,7 @@ import lombok.Data;
 public class Enrollment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String idIncripcion;
+    private Long idIncripcion;
     @ManyToOne
     @JoinColumn( name= "numero_estudiante",nullable = false)
      private Student estudiante;
