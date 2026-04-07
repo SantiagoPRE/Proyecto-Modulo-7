@@ -20,10 +20,10 @@ public class Enrollment {
     private String idIncripcion;
     @ManyToOne
     @JoinColumn( name= "numero_estudiante",nullable = false)
-     private List<Student> estudiante;
+     private Student estudiante;
      @ManyToOne
      @JoinColumn( name= "codigo_curso",nullable = false)
-     private List<Course> curso;
+     private Course curso;
       @Column( nullable = false)
      private LocalDate fechaInscripcion;
       @Column( nullable = false)
