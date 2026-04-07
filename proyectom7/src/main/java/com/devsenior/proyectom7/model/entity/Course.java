@@ -1,10 +1,13 @@
 package com.devsenior.proyectom7.model.entity;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.Data;
 
 @Entity
@@ -23,4 +26,6 @@ public class Course {
     @ManyToOne
     @JoinColumn(name = "numeroDeProfesor", nullable = false)
     private Professor professor;
+    @OneToMany(mappedBy = "curso")
+    private List<Enrollment> inscripciones;
 }

@@ -9,8 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
 @Entity
@@ -18,15 +17,15 @@ import lombok.Data;
 public class Enrollment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_inscripcion")
     private String idIncripcion;
-    @ManyToMany
-    @JoinTable(name = "cursos_inscritos", joinColumns = @JoinColumn(name="numero_estudiante"),inverseJoinColumns=@JoinColumn(name="codigo_curso"))
+    @ManyToOne
+    @JoinColumn( name= "numero_estudiante",nullable = false)
      private List<Student> estudiante;
-     @ManyToMany(mappedBy = "estudiante")
+     @ManyToOne
+     @JoinColumn( name= "codigo_curso",nullable = false)
      private List<Course> curso;
-      @Column(name = "fecha_inscripcion", nullable = false)
+      @Column( nullable = false)
      private LocalDate fechaInscripcion;
-      @Column(name = "estado_inscripcion", nullable = false)
+      @Column( nullable = false)
      private String estadoInscripcion;
 }
