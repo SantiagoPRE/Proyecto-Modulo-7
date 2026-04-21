@@ -7,13 +7,15 @@ import jakarta.validation.constraints.NotEmpty;
 
 
 
-public record StudentRequest(
+public record ProfessorRequest(
     @NotEmpty
-    Long numeroDeEstudiante,
+    Long numeroDeProfesor,
     @NotBlank
     String nombre,
     @NotBlank
+    String departamento,
+    @NotBlank
     String correo,
-    List<EnrollmentRequest> inscripciones) {
+     List<CourseRequest> cursos
+) {}
 
-}
